@@ -25,7 +25,7 @@
 {
     flex: 1 1 auto;
     box-sizing: border-box;
-    padding: 1.5vh !important;
+    padding: 5% !important;
 }
 
 .input_wrapper > textarea
@@ -33,12 +33,13 @@
     box-sizing: border-box;
     height: 100% !important;
     max-height: revert;
+    min-width: 90%;
 }
 
 .theme_editor_css_editor_lightbox_widget > h2
 {
     position: absolute;
-    padding:10px !important;
+    padding: 5% !important;
     flex: 0 1 auto;
     margin-left: 2px !important;
 }
