@@ -33,7 +33,7 @@
     box-sizing: border-box;
     height: 100% !important;
     max-height: revert;
-    min-width: 90%;
+    min-width: 100%;
 }
 
 .theme_editor_css_editor_lightbox_widget > h2
