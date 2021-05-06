@@ -11,7 +11,7 @@
 {
     float: left;
     margin-top: 50px;
-    height: calc(100% - 50px);
+    height: calc(100vh - 50px);
     width: 20vw !important;
     min-width: 220px;
     left: 0 !important;
