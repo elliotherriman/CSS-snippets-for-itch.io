@@ -31,7 +31,8 @@
 
 .input_wrapper > textarea
 {
-    min-width: 90%;
+    min-width: -moz-available;
+    min-width: -webkit-fill-available;
     max-height: 100% !important;
 height: 100% !important;
     height: -webkit-fill-available !important;
