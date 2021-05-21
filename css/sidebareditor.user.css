@@ -8,99 +8,102 @@
 @updateURL      https://github.com/elliotherriman/itch.io/edit/main/css/sidebareditor.user.css
 ==/UserStyle== */
 
-#lightbox_container
+@-moz-document domain("itch.io") 
 {
-    display: block;
-    height: 0;
-    overflow: visible !important;
+    #lightbox_container
+    {
+        display: block;
+        height: 0;
+        overflow: visible !important;
+    }
+
+    #lightbox_container .theme_editor_css_editor_lightbox_widget
+    {
+        float: left;
+        margin-top: 50px;
+        height: calc(100vh - 50px);
+        width: 20vw !important;
+        min-width: 220px;
+        left: 0 !important;
+        transform: none !important;
+        box-shadow: revert;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .input_wrapper
+    {
+        flex: 1 1 auto;
+        box-sizing: border-box;
+        padding: 5% !important;
+        height: inherit !important;
+    }
+
+    .input_wrapper > textarea
+    {
+        min-width: -moz-available;
+        min-width: -webkit-fill-available;
+        max-height: 100% !important;
+    height: 100% !important;
+        height: -webkit-fill-available !important;
+        padding-bottom: 1em;
+    }
+
+    .theme_editor_css_editor_lightbox_widget > h2
+    {
+        position: absolute;
+        padding: 5% !important;
+        flex: 0 1 auto;
+        margin-left: 2px !important;
+    }
+
+    .theme_editor_css_editor_lightbox_widget > button
+    {
+        margin-left: auto;
+        display: inline!important;
+        margin-right: 0 !important;
+        margin-top: 0 !important;
+        padding: 1em 1em 0 0;
+    }
+
+    .theme_editor_css_editor_lightbox_widget > p
+    {
+        display: none;
+    }
+
+    #lightbox_shroud
+    {
+        display: none !important;
+    }
+
+    .maximize_button
+    {
+        position: absolute;
+        visibility: hidden;
+        right: 0;
+        padding-right: 0px! important;
+    }
+
+    .maximize_button:before 
+    {
+        content: "Open editor";
+        visibility: visible;
+        padding: 2px 6px;
+        background: #fff !important;
+        border-radius: 2px;
+        border: 1px solid !important;
+        border-color: #ccc !important;
+    }
+
+    .label_help > .button
+    {
+        display: none;
+    }    
+
+    .css_editor > h3, .css_editor > textarea
+    {
+        display: none;
+    }
+
+    /* ======================= */
 }
-
-#lightbox_container .theme_editor_css_editor_lightbox_widget
-{
-    float: left;
-    margin-top: 50px;
-    height: calc(100vh - 50px);
-    width: 20vw !important;
-    min-width: 220px;
-    left: 0 !important;
-    transform: none !important;
-    box-shadow: revert;
-    display: flex;
-    flex-flow: column;
-}
-
-.input_wrapper
-{
-    flex: 1 1 auto;
-    box-sizing: border-box;
-    padding: 5% !important;
-    height: inherit !important;
-}
-
-.input_wrapper > textarea
-{
-    min-width: -moz-available;
-    min-width: -webkit-fill-available;
-    max-height: 100% !important;
-height: 100% !important;
-    height: -webkit-fill-available !important;
-    padding-bottom: 1em;
-}
-
-.theme_editor_css_editor_lightbox_widget > h2
-{
-    position: absolute;
-    padding: 5% !important;
-    flex: 0 1 auto;
-    margin-left: 2px !important;
-}
-
-.theme_editor_css_editor_lightbox_widget > button
-{
-    margin-left: auto;
-    display: inline!important;
-    margin-right: 0 !important;
-    margin-top: 0 !important;
-    padding: 1em 1em 0 0;
-}
-
-.theme_editor_css_editor_lightbox_widget > p
-{
-    display: none;
-}
-
-#lightbox_shroud
-{
-    display: none !important;
-}
-
-.maximize_button
-{
-    position: absolute;
-    visibility: hidden;
-    right: 0;
-    padding-right: 0px! important;
-}
-
-.maximize_button:before 
-{
-    content: "Open editor";
-    visibility: visible;
-    padding: 2px 6px;
-    background: #fff !important;
-    border-radius: 2px;
-    border: 1px solid !important;
-    border-color: #ccc !important;
-}
-
-.label_help > .button
-{
-    display: none;
-}    
-
-.css_editor > h3, .css_editor > textarea
-{
-    display: none;
-}
-
-/* ======================= */
