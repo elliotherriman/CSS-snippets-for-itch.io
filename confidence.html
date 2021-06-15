@@ -1,0 +1,360 @@
+<!DOCTYPE html><html><head>
+      <title>Confidence</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/Elliot/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.21/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  background-color: #2b2b2b;
+  font-size: 18px;
+}
+html body blockquote {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="finding-the-confidence-to-write">Finding The Confidence To Write</h1>
+
+<h2 class="mume-header" id="on-writing">On Writing</h2>
+
+<p>Writing is hard. Like, it&apos;s genuinely difficult. I&#x2019;ve been staring at this page for a good ten minutes, struggling to figure out where I should start, what this first lesson should even be about.</p>
+<p>So I&#x2019;m going with this.</p>
+<p>Writing is <em>hard</em>.</p>
+<p>And I think that gets forgotten sometimes? Because for many of us, we&apos;re constantly writing. Typing. Yelling at friends in the group chat, yelling at strangers on Twitter-- that&#x2019;s writing. You&#x2019;re taking your thoughts and communicating them, and you&#x2019;re doing it in a way that feels natural and intuitive and effortless.</p>
+<p>But sitting down to write a story, or an essay, or even an email? Suddenly, something&#x2019;s different. Suddenly, it&#x2019;s not so effortless. And if you don&apos;t recognise that, and understand why it&apos;s happening, it&apos;s honestly hard to escape.</p>
+<p>See, most writers &#x2014; most artists, really &#x2014; are good at critically analysing things. They&apos;ve got a good eye for what works and what doesn&apos;t, especially in their chosen medium. And that applies to people who are just starting out.</p>
+<p>Ira Glass covered this a while back--</p>
+<blockquote>
+<p>All of us who do creative work, we get into it because we have good taste. But there is this gap. For the first couple years you make stuff, it&#x2019;s just not that good. It&#x2019;s trying to be good, it has potential, but it&#x2019;s not. But your taste, the thing that got you into the game, is still killer. And your taste is why your work disappoints you.</p>
+</blockquote>
+<p>If you can&apos;t relate to any of this, then genuinely, I&apos;m glad. You can probably tap out of the lesson here. But for myself, and for a lot of writers, creating something that you <em>know</em> isn&apos;t as good as it could be? It feels excruciating. Because you are clever! You know what&apos;s good, and you know what you just typed isn&apos;t. You think you should be able to create something great. But you can&apos;t. And it&apos;s grueling to run up against that, again and again.</p>
+<p>I say all this for two reasons.</p>
+<p>Firstly, if you find writing difficult and anxious, I want to make sure you know you aren&apos;t alone. Most writers I&apos;ve talked to have dealt with this to some degree. Some big name writers <em>still do</em>.</p>
+<p>And secondly? Because I know firsthand that the only way past this sort of anxiety is by recognising it and confronting it. And that doesn&apos;t mean forcing yourself to write. It doesn&apos;t mean punishing yourself if you can&apos;t write. It means introspecting, and learning what works for you.</p>
+<p>So this is lesson zero. I&apos;m deciding that now. We&apos;re not going to cover any theory this time. I&apos;m just going to talk about the things that have helped me unwind some of that anxiety.</p>
+<p>Are you all down with that? Great. Fantastic.</p>
+<h2 class="mume-header" id="half-measures">Half Measures</h2>
+
+<p>Wait, okay, quick diversion. There are a lot of things that I&apos;ve done that are adjacent to writing, and did relieve some anxiety, but never actually helped me write.</p>
+<p>Things like...</p>
+<ul>
+<li>Telling people about the thing I&apos;m writing.</li>
+<li>Making mood boards on Pinterest.</li>
+<li>Making playlists on Spotify.</li>
+<li>Organising files and folders on my computer.</li>
+<li>Rewording old lines, because they don&apos;t sound quite right.</li>
+<li>Playing with margins and fonts.</li>
+</ul>
+<p>And so forth.</p>
+<p>Reducing your anxiety is important. But these sort of middle ground things have only ever exhausted me creatively? And they never seem to leave me feeling better afterwards.</p>
+<p>If you want to do those things, great. But don&apos;t let them interfere with your writing, and <em>definitely</em> don&apos;t let them interfere with the time you should be setting aside to relax and recover.</p>
+<h2 class="mume-header" id="full-measures">Full Measures</h2>
+
+<p>Alright. Here&apos;s what I&apos;ve found helps me write.</p>
+<h3 class="mume-header" id="schedules">Schedules</h3>
+
+<p>Setting schedules can help. Telling yourself you&apos;ll write five hundred words every day, that sort of thing.</p>
+<p>In my experience, though, it&apos;s a little bit easier to commit to a length of time, rather than a number of words? So...</p>
+<h3 class="mume-header" id="setting-a-timer">Setting A Timer</h3>
+
+<p>That burst of focus you have on the night an essay&apos;s due? Yeah. That. You&apos;re going to harness that.</p>
+<p>Set yourself a timer for however long... and just <em>write</em>. Close everything else, turn off your WiFi, whatever. It doesn&apos;t matter how much you get done. You just need to learn how to sit down and start busting out words.</p>
+<p>I&apos;d highly recommend checking out <a href="https://www.reddit.com/r/DoTheWriteThing/">Do The Write Thing</a>, a writing podcast. They give you a prompt every week, and challenge you to write a story in thirty minutes. Plus, if you post what you write on their subreddit, the hosts will often give you feedback on the podcast! Which is really neat!</p>
+<h3 class="mume-header" id="cutting-corners">Cutting Corners</h3>
+
+<p>Deadlines and pressure force you to make compromises &#x2014;&#xA0;you let a line be bad because you don&apos;t have time to fix it. But intentionally doing that has helped me, too.</p>
+<p>Just giving up on capital letters and punctuation, letting my characters sound like awkward buffoons, because I know that I can come back in ten minutes once I have a rough draft and fix things up.</p>
+<p>It can be tough at times. It&apos;s a learned skill. But I find it&apos;s usually faster for me to write an awful draft and then completely rewrite it into a good one, than it is for me to write something perfect from scratch.</p>
+<h3 class="mume-header" id="decide-what-you-want-to-improve-on">Decide What You Want To Improve On</h3>
+
+<p>This is kind of important in general-- if you want to improve as a writer, it really helps to decide <em>what</em> you want to improve on? Like, dialogue, action scenes, whatever. And then just throw yourself into a scene that features that heavily.</p>
+<p>I&apos;ve found this helps me in two ways. It makes it easier to start writing, because I already know at least partially what I&apos;m writing about.</p>
+<p>But it&apos;s also just easier to improve. Because it doesn&apos;t matter as much if everything else is terrible, as long as the dialogue&apos;s okay. Or, hell, the dialogue can <em>suck</em>. But as long as it&apos;s a little better than it was this time last month? Then that&apos;s improvement, and it&apos;s something to be proud of yourself for.</p>
+<h3 class="mume-header" id="being-kind-to-yourself">Being Kind To Yourself</h3>
+
+<p>Don&apos;t tie your value or identity into writing. If you write something that doesn&apos;t measure up to your expectations, forgive yourself. If you can&apos;t find a way to write, then forgive yourself for that, too.</p>
+<h3 class="mume-header" id="keep-working">Keep Working</h3>
+
+<p>Truth is, the only way you&apos;re going to get better at writing... is by writing. Reading theory can help. Talking about writing can help. But you need to put those things into practice, otherwise you&apos;ll never make progress.</p>
+<p>That Ira Glass quote before? It wasn&apos;t complete. I cut off the end. For emphasis.</p>
+<p>So here&apos;s the rest of it.</p>
+<blockquote>
+<p>A lot of people never get past this phase, they quit. Most people I know who do interesting, creative work went through years of this. We know our work doesn&#x2019;t have this special thing that we want it to have. We all go through this.</p>
+<p>And if you are just starting out or you are still in this phase, you gotta know its normal and the most important thing you can do is do a lot of work. Put yourself on a deadline so that every week you will finish one story. It is only by going through a volume of work that you will close that gap, and your work will be as good as your ambitions. And I took longer to figure out how to do this than anyone I&#x2019;ve ever met. It&#x2019;s gonna take awhile. It&#x2019;s normal to take awhile. You&#x2019;ve just gotta fight your way through.</p>
+</blockquote>
+<p>You&apos;re never going to improve until you put that work in. But if you find you can&apos;t put that work in? There&apos;s probably something blocking you.</p>
+<p>Which means your assignment this week is...</p>
+<h2 class="mume-header" id="junes-assignment">June&apos;s Assignment</h2>
+
+<p>Write something &#x2014; then either post it to <code>#feedback</code>, or tell us about it in <code>#assignments</code>. I do not care what it is. I just want you to write. Use one of these techniques, or something that someone else suggests, and write something. Maybe submit it to that podcast I mentioned.</p>
+<p>And if you let whatever you write be terrible, I&apos;ll be extra proud of you.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
